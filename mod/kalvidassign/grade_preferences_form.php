@@ -41,7 +41,7 @@ class kalvidassign_gradepreferences_form extends moodleform {
         $mform->addElement('header', 'kal_vid_subm_hdr', get_string('optionalsettings', 'kalvidassign'));
 
 
-        $context = get_context_instance(CONTEXT_MODULE, $this->_customdata['cmid']);
+        $context = context_module::instance($this->_customdata['cmid']);
 
         $group_opt = array();
         $groups    = array();
