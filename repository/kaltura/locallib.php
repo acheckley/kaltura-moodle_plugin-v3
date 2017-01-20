@@ -518,7 +518,7 @@ function repository_kaltura_get_course_access_list($capability = '') {
     $user_role_access = repository_kaltura_get_user_kaltura_repo_access($USER->id, $capability);
 
     // Find roles that have this capability in the system context
-    $roles_with_cap = get_roles_with_caps_in_context(get_context_instance(CONTEXT_SYSTEM), array($capability));
+    $roles_with_cap = get_roles_with_caps_in_context(context_system::instance(), array($capability)); 
 
     $courses       = array();
     $final_courses = array();
@@ -583,7 +583,7 @@ function repository_kaltura_get_course_access_list($capability = '') {
                         if (array_key_exists($courseid, $final_courses)) {
 
                             // Flag the course to have it's capability checked at the course level
-                            $course_context = get_context_instance(CONTEXT_COURSE, $courseid);
+                            $course_context = context_course::instance($courseid); 
 
                             if (!has_capability($capability, $course_context)) {
                                 unset($final_courses[$courseid]);
@@ -611,7 +611,7 @@ function repository_kaltura_get_course_access_list($capability = '') {
             foreach ($final_courses as $id => $data) {
 
                 // Flag the course to have it's capability checked at the course level
-                $course_context = get_context_instance(CONTEXT_COURSE, $id);
+                $course_context = context_course::instance($id); 
 
                 if (!has_capability($capability, $course_context)) {
                     unset($final_courses[$id]);
