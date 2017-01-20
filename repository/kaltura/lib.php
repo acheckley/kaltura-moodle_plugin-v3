@@ -225,7 +225,7 @@ if ($version) {
                                         '&nbsp;&nbsp;<a href="'.$CFG->wwwroot.'/repository/kaltura/resetcategory.php">'.get_string('resetroot', 'repository_kaltura').'</a>');
 
                 }
-
+                $mform->setType('rootcategory', PARAM_TEXT); 
                 // List Kaltura metadata profile information
                 $profile = repository_kaltura_get_metadata_profile_info($connection);
 
@@ -246,7 +246,7 @@ if ($version) {
 
                     } else {
                         // Check if the metadata profile id exists in the mdl_config_table
-                        $profileid = get_config(REPOSITORY_KALTURA_PLUGIN_NAME, 'metadata_profile_id');
+                        $profileid = empty($repoconfig->metadata_profile_id) ? null : $repoconfig->metadata_profile_id; 
 
                         // If empty then set the profile id
                         if (empty($profileid)) {
@@ -805,7 +805,7 @@ if ($version) {
                                         '&nbsp;&nbsp;<a href="'.$CFG->wwwroot.'/repository/kaltura/resetcategory.php">'.get_string('resetroot', 'repository_kaltura').'</a>');
 
                 }
-
+		$mform->setType('rootcategory', PARAM_TEXT); 
                 // List Kaltura metadata profile information
                 $profile = repository_kaltura_get_metadata_profile_info($connection);
 
