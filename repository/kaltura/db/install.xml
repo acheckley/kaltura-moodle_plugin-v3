@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="repository/kaltura/db" VERSION="20120613" COMMENT="XMLDB file for Moodle repository/kaltura"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="repo_kaltura_videos" COMMENT="A reference table for videos referenced in Moodle courses">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="courseid"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Moodle course id" PREVIOUS="id" NEXT="entryid"/>
+        <FIELD NAME="entryid" TYPE="char" LENGTH="15" NOTNULL="true" SEQUENCE="false" COMMENT="Kaltura video entry id" PREVIOUS="courseid" NEXT="timecreated"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" COMMENT="The time the entry was created" PREVIOUS="entryid"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course_entry_idx" UNIQUE="true" FIELDS="courseid, entryid" COMMENT="A unique index on courseid and entryid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
