@@ -115,7 +115,7 @@ $PAGE->requires->js_init_call('M.local_kaltura.video_asignment_submission_view',
 
 echo $OUTPUT->header();
 
-require_capability('mod/kalvidassign:gradesubmission', get_context_instance(CONTEXT_MODULE, $cm->id));
+require_capability('mod/kalvidassign:gradesubmission', context_module::instance($cm->id));
 
 add_to_log($course->id, 'kalvidassign', 'view submissions page', 'grade_submissions.php?cmid='.$cm->id, $kalvidassignobj->id, $cm->id);
 
