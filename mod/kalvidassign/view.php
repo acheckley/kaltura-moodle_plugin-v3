@@ -37,7 +37,7 @@ if (!empty($id)) {
         print_error('invalidcoursemodule');
     }
 
-    if (! $course = $DB->get_record('course', array('id' => $cm->course))) {
+    if (! $course = get_course($cm->course)) {
         print_error('coursemisconf');
     }
 
