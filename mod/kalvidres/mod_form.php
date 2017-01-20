@@ -200,10 +200,10 @@ class mod_kalvidres_mod_form extends moodleform_mod {
 
         // Check of KSR is enabled via config or capability
         if (!empty($this->_cm)) {
-            $context       = get_context_instance(CONTEXT_MODULE, $this->_cm->id);
+            $context       = context_module::instance($this->_cm->id);
         } else {
 
-            $context       = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+            $context       = context_course::instance($COURSE->id);
         }
 
         if ($enable_ksr && has_capability('mod/kalvidres:screenrecorder', $context)) {
