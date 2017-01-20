@@ -96,7 +96,7 @@ $jsmodule = array(
 );
 
 
-$courseid               = get_courseid_from_context($PAGE->context);
+$courseid               = $PAGE->course->id;
 $conversion_script      = "../../local/kaltura/check_conversion.php?courseid={$courseid}&entry_id=";
 $markup                 = $renderer->display_video_preview_markup();
 $markup                 .= $renderer->display_loading_markup();
