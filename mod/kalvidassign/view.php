@@ -77,7 +77,7 @@ $PAGE->set_url('/mod/kalvidassign/view.php', array('id'=>$id));
 $PAGE->set_title(format_string($kalvidassign->name));
 $PAGE->set_heading($course->fullname);
 
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = $PAGE->context;
 
 add_to_log($course->id, 'kalvidassign', 'view assignment details', 'view.php?id='.$cm->id, $kalvidassign->id, $cm->id);
 
