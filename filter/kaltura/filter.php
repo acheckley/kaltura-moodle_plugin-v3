@@ -146,10 +146,10 @@ class filter_kaltura extends moodle_text_filter {
             }
 
             // Get the course id of the current context
+            $coursectx = $this->context->get_course_context(false);
             if (empty(self::$courseid)) {
-                self::$courseid = get_courseid_from_context($PAGE->context);
+                self::$courseid = $coursectx->instanceid;
             }
-
             try {
                 // Create the the session for viewing of each video detected
                 self::$ksession = local_kaltura_generate_kaltura_session(self::$videos);
