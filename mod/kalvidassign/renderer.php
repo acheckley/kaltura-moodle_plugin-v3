@@ -129,7 +129,7 @@ class submissions_table extends table_sql {
                           'class' => $locked_overridden);
 
 
-            $output = html_writer::tag('div', $final_grade->formatted_grade, $attr);
+            $output = html_writer::div($final_grade->formatted_grade, '', $attr); 
 
 
         } else if (!empty($this->_quickgrade)) {
@@ -210,11 +210,11 @@ class submissions_table extends table_sql {
 
         $attr = array('id' => 'ts'.$data->id);
 
-        $date_modified = $data->timemodified;
-        $date_modified = is_null($date_modified) || empty($data->timemodified) ?
-                            '' : userdate($date_modified);
+        $date_modified = is_null($data->timemodified) || empty($data->timemodified) ? 
+        
+                            '' : userdate($data->timemodified); 
 
-        $output = html_writer::tag('div', $date_modified, $attr);
+        $output = html_writer::div($date_modified, '', $attr); 
 
         $output .= html_writer::empty_tag('br');
         $output .= html_writer::start_tag('center');
@@ -290,7 +290,7 @@ class submissions_table extends table_sql {
         if (0 < $data->timemarked) {
 
                 $attr = array('id' => 'tt'.$data->id);
-                $output = html_writer::tag('div', userdate($data->timemarked), $attr);
+                $output = html_writer::div(userdate($data->timemarked), '', $attr); 
 
         } else {
             $otuput = '-';
@@ -401,7 +401,7 @@ class mod_kalvidassign_renderer extends plugin_renderer_base {
         $attr = array('id' => 'notification',
                       'class' => 'notification',
                       'tabindex' => '-1');
-        $html .= html_writer::tag('div', '', $attr);
+        $html .= html_writer::div('', '', $attr); 
 
         if (!empty($entry_obj)) {
 
@@ -1029,15 +1029,15 @@ class mod_kalvidassign_renderer extends plugin_renderer_base {
         $output = '';
 
         $attr = array('id' => 'video_panel');
-        $output .= html_writer::start_tag('div', $attr);
+        $output .= html_writer::start_div('', $attr); 
 
         $attr = array('class' => 'hd');
-        $output .= html_writer::tag('div', '', $attr);
+        $output .= html_writer::div('', '', $attr); 
 
         $attr = array('class' => 'bd');
-        $output .= html_writer::tag('div', '', $attr);
+        $output .= html_writer::div('', '', $attr);
 
-        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_div();
 
         return $output;
     }
@@ -1052,15 +1052,15 @@ class mod_kalvidassign_renderer extends plugin_renderer_base {
 
         $attr = array('id' => 'id_video_preview',
                       'class' => 'video_preview');
-        $output .= html_writer::start_tag('div', $attr);
+        $output .= html_writer::start_div('', $attr); 
 
         $attr = array('class' => 'hd');
-        $output .= html_writer::tag('div', get_string('video_preview_header', 'kalvidassign'), $attr);
+        $output .= html_writer::div(get_string('video_preview_header', 'kalvidassign'), '', $attr); 
 
         $attr = array('class' => 'bd');
-        $output .= html_writer::tag('div', '', $attr);
+        $output .= html_writer::div('', '', $attr); 
 
-        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_div(); 
 
         return $output;
 
@@ -1075,19 +1075,19 @@ class mod_kalvidassign_renderer extends plugin_renderer_base {
         // Panel wait markup
         $output = '';
 
-        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_div(); 
 
         $attr = array('id' => 'wait');
-        $output .=  html_writer::start_tag('div', $attr);
+        $output .=  html_writer::start_div('', $attr); 
 
         $attr = array('class' => 'hd');
         $output .= html_writer::tag('div', '', $attr);
 
         $attr = array('class' => 'bd');
 
-        $output .= html_writer::tag('div', '', $attr);
+        $output .= html_writer::div('', '', $attr); 
 
-        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_div(); 
 
         return $output;
     }
@@ -1194,10 +1194,10 @@ class mod_kalvidassign_renderer extends plugin_renderer_base {
         $progress_bar = html_writer::tag('span', '', $attr);
 
         $attr          = array('id' => 'slider_border');
-        $slider_border = html_writer::tag('div', $progress_bar, $attr);
+        $slider_border = html_writer::div($progress_bar, '', $attr); 
 
         $attr          = array('id' => 'loading_text');
-        $loading_text  = html_writer::tag('div', get_string('checkingforjava', 'mod_kalvidassign'), $attr);
+        $loading_text  = html_writer::div(get_string('checkingforjava', 'mod_kalvidassign'), '', $attr); 
 
         $attr   = array('id' => 'progress_bar_container',
                         'style' => 'width:100%; padding-left:10px; padding-right:10px; visibility: hidden');
