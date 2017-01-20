@@ -110,8 +110,8 @@ if ($version) {
                 }
 
             } catch (Exception $exp) {
-                $courseid = get_courseid_from_context($PAGE->context);
-
+				$coursectx = $this->context->get_course_context(false);
+				$courseid = $coursectx->instanceid;
                 if (empty($courseid)) {
                     $courseid = 1;
                 }
@@ -290,8 +290,8 @@ if ($version) {
             $kaltura = new kaltura_connection();
             $connection = $kaltura->get_connection(true, KALTURA_SESSION_LENGTH);
 
-            $courseid = get_courseid_from_context($this->context);
-
+			$coursectx = $this->context->get_course_context(false);
+			$courseid = $coursectx->instanceid;
             if (!$this->root_category_initialized() || empty($connection) ||
                 (empty($system_access) && empty($shared_access))) {
                 $ret['nologin'] = true;
@@ -690,8 +690,8 @@ if ($version) {
                 }
 
             } catch (Exception $exp) {
-                $courseid = get_courseid_from_context($PAGE->context);
-
+				$coursectx = $this->context->get_course_context(false);
+				$courseid = $coursectx->instanceid;
                 if (empty($courseid)) {
                     $courseid = 1;
                 }
@@ -873,8 +873,8 @@ if ($version) {
             $kaltura = new kaltura_connection();
             $connection = $kaltura->get_connection(true, KALTURA_SESSION_LENGTH);
 
-            $courseid = get_courseid_from_context($this->context);
-
+			$coursectx = $this->context->get_course_context(false);
+			$courseid = $coursectx->instanceid;
             if (!$this->root_category_initialized() || empty($connection) ||
                 (empty($system_access) && empty($shared_access))) {
                 $ret['nologin'] = true;
