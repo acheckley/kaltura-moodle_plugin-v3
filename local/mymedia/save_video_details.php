@@ -38,7 +38,7 @@ require_login();
 
 global $USER;
 
-$context = get_context_instance(CONTEXT_USER, $USER->id);
+$context = context_user::instance($USER->id); 
 require_capability('local/mymedia:view', $context, $USER);
 
 // Explode the variable into an array
