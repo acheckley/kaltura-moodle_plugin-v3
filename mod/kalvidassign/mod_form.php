@@ -46,7 +46,7 @@ class mod_kalvidassign_mod_form extends moodleform_mod {
         }
         $mform->addRule('name', null, 'required', null, 'client');
 
-        $this->add_intro_editor(false);
+        $this->standard_intro_elements(false);
 
         $mform->addElement('date_time_selector', 'timeavailable', get_string('availabledate', 'kalvidassign'), array('optional'=>true));
         $mform->setDefault('timeavailable', time());
