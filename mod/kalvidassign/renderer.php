@@ -506,7 +506,7 @@ class mod_kalvidassign_renderer extends plugin_renderer_base {
 
         // Check of KSR is enabled via config or capability
         $enable_ksr = get_config(KALTURA_PLUGIN_NAME, 'enable_screen_recorder');
-        $context    = get_context_instance(CONTEXT_MODULE, $cm->id);
+        $context    = context_module::instance($cm->id);
         
 
         if ($enable_ksr && has_capability('mod/kalvidassign:screenrecorder', $context)) {
@@ -620,7 +620,7 @@ class mod_kalvidassign_renderer extends plugin_renderer_base {
 
         // Check of KSR is enabled via config or capability
         $enable_ksr = get_config(KALTURA_PLUGIN_NAME, 'enable_screen_recorder');
-        $context    = get_context_instance(CONTEXT_MODULE, $cm->id);
+        $context    = context_module::instance($cm->id);
         
 
         if ($enable_ksr && has_capability('mod/kalvidassign:screenrecorder', $context)) {
@@ -811,7 +811,7 @@ class mod_kalvidassign_renderer extends plugin_renderer_base {
         $groups_join   = '';
         $groups        = array();
         $group_ids     = '';
-        $context       = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+        $context       = context_course::instance($COURSE->id);
 
         // Get all groups that the user belongs to, check if the user has capability to access all groups
         if (!has_capability('moodle/site:accessallgroups', $context, $USER->id)) {
