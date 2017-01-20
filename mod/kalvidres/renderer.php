@@ -69,7 +69,7 @@ class mod_kalvidres_renderer extends plugin_renderer_base {
             $entry_obj->height = $kalvidres->height;
 
             // Determine if the mobile theme is being used
-            $theme = get_selected_theme_for_device_type();
+            $theme = core_useragent::get_device_type_theme();
 
             if (0 == strcmp($theme, 'mymobile')) {
 
