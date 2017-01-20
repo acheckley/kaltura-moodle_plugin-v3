@@ -29,7 +29,7 @@ require_login(null, false, null, false, false);
 
 global $CFG, $OUTPUT, $PAGE, $DB;
 
-require_capability('moodle/site:config',get_context_instance(CONTEXT_SYSTEM), $USER);
+require_capability('moodle/site:config',context_system::instance(), $USER); 
 
 $confirm = optional_param('confirm', 0, PARAM_INT);
 
@@ -40,7 +40,7 @@ $continue     = new moodle_url($CFG->wwwroot . '/repository/kaltura/resetcategor
 $repo_setting = new moodle_url($CFG->wwwroot . '/admin/repository.php', array('action' => 'edit', 'repos' => 'kaltura', 'sesskey' => $sesskey));
 
 $PAGE->set_url($url);
-$PAGE->set_context(get_context_instance(CONTEXT_SYSTEM));
+$PAGE->set_context(context_system::instance());
 $PAGE->set_title(get_string('resetroot', 'repository_kaltura'));
 $PAGE->set_heading(get_string('resetroot', 'repository_kaltura'));
 
