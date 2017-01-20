@@ -528,7 +528,7 @@ function repository_kaltura_get_course_access_list($capability = '') {
         $context_path           = $role_assign_context_path;
         $context_path           = explode('/', $context_path);
         $role_assign_context_id = end($context_path);
-        $role_assign_context    = get_context_instance_by_id($role_assign_context_id);
+        $role_assign_context    = context::instance_by_id($role_assign_context_id);
 
         // Check if the user has a role assignment with the capability set to allowed
         $user_role_with_cap = array_intersect($roles_array, $roles_with_cap);
@@ -634,7 +634,7 @@ function repository_kaltura_get_course_access_list($capability = '') {
 function repository_kaltura_get_all_courses_in_context($context_id) {
     global $DB;
 
-    $context = get_context_instance_by_id($context_id);
+    $context = context::instance_by_id($context_id);
     $result  = array();
     $records = array();
 
