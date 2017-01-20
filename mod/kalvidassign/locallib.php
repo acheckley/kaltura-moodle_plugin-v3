@@ -361,7 +361,7 @@ function kalvidassign_email_teachers_html($info) {
 function kalvidassign_get_assignment_students($cm) {
     global $CFG;
 
-    $context    = get_context_instance(CONTEXT_MODULE, $cm->id);
+    $context    = context_module::instance($cm->id);
     $users = get_enrolled_users($context, 'mod/kalvidassign:submit', 0, 'u.id');
     
     return $users;
